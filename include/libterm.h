@@ -15,8 +15,8 @@ struct TERMINAL_EVENT {
   int  id;
   char *name;
   bool *active;
-  char *desc;
-  char *arg_type;
+//char *desc;
+// char *arg_type;
 };
 
 TERMINAL_EVENT *terminal_events[] = {
@@ -26,9 +26,6 @@ TERMINAL_EVENT *terminal_events[] = {
 
 list_t         *terminal_events_list;
 volatile int   LIBTERM_INITIALIZED = -1;
-//*TERMINAL_EVENT get_terminal_events(){
-
-//}
 
 int t1();
 void libterm_init();

@@ -15,24 +15,18 @@ int term_events_qty(){
 
 
 int is_valid_term_event_name(char *n){
-  if (LIBTERM_INITIALIZED == -1) {
+  if (LIBTERM_INITIALIZED == -1) 
     libterm_init();
-  }
   list_node_t     *node;
   list_iterator_t *it = list_iterator_new(terminal_events_list, LIST_HEAD);
   int             cur = 0;
 
-  while ((node = list_iterator_next(it))) {
-    log_debug("key:%s", node->key);
-  }
-
-return 0;
 
   for (int cur = 1; cur <= terminal_events_list->len; cur++) {
-      continue;
       log_debug("cur:%d", cur);
 
-      list_node_t *found_item = list_find_key(terminal_events_list, __term_event_names[cur-1]);
+//      list_node_t *found_item = list_find_key(terminal_events_list, __term_event_names[cur-1]);
+      continue;
       list_node_t *cur_item = list_at(terminal_events_list, cur);
       if(cur_item != NULL){
       TERMINAL_EVENT *cur_event = (cur_item->val);
@@ -78,7 +72,7 @@ void libterm_init(){
     TERMINAL_EVENT *te = malloc(sizeof(TERMINAL_EVENT));
     te->id     = i*2;
     te->name   = strdup(cur_name);
-    te->desc   = strdup("ok123");
+//    te->desc   = strdup("ok123");
     te->active = i < 5 ? true : false;
     list_node_t *item = list_node_key_new((void*)te, cur_name);
     log_info("adding %s -> %s / %s|active:%d|", cur_name, item->key, 
